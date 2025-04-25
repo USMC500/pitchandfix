@@ -166,7 +166,7 @@ header {
 /* Hero Section */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../images/hero-bg.jpg");
+    url("https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-7264-622f-961b-acb9e32de7bc/raw?se=2025-04-25T19%3A22%3A44Z&sp=r&sv=2024-08-04&sr=b&scid=4de41ed5-1f31-5a20-859f-3948e451d4d6&skoid=d958ec58-d47c-4d2f-a9f2-7f3e03fdcf72&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-25T16%3A34%3A27Z&ske=2025-04-26T16%3A34%3A27Z&sks=b&skv=2024-08-04&sig=ee480TLob86kyy0BphtfNaRIUut2q5xjnZtfvgow5pE%3D");
   background-size: cover;
   background-position: center;
   height: 500px;
