@@ -133,6 +133,15 @@ header {
   z-index: 10;
 }
 
+.cart-dropdown-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.remove-item {
+  align-self: center;
+}
+
 .cart-items {
   max-height: 300px;
   overflow-y: auto;

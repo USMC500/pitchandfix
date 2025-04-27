@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Show cart count on load
   updateCartCount();
 
+  setupProducts()
+
   // Setup event listeners
   setupEventListeners();
 });
@@ -24,8 +26,53 @@ function initializeSite() {
   setupNewsletterForm();
 }
 
-// Setup event listeners for the site
-function setupEventListeners() {
+function setupProducts() {
+  const productGrid = document.querySelectorAll(".product-grid");
+  if(productGrid) {
+    products.forEach((item) => {
+      const productCard = document.createElement("div");
+      productCard.className = "product-card";
+
+      productCard.innerHTML = `
+        <div class="product-image">
+            <img src="${item.image}" alt="Product 1">
+            <div class="product-tag">${item.tag}</div>
+        </div>
+        <div class="product-details">
+            <h3 class="product-title">${item.title}</h3>
+            <div id="product-price-${item.id}" class="product-price">
+            </div>
+            <div class="product-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span class="rating-count">(42)</span>
+            </div>
+            <button class="add-to-cart-btn" data-product-id="${item.id}" data-product-name="${item.title}" data-product-price="${getProductPrice(item)}">Add to Cart</button>
+        </div>
+      `
+
+      const productPrice = document.getElementById(`product-price-${item.id}`)
+      if (item.hasOwnProperty("salePrice")) {
+         productPrice.innerHTML = `
+          <span class="original-price">$${item.marketPrice}</span>
+          <span class="sale-price">${item.salePrice}</span>
+        `
+      }
+      else {
+        productPrice.innerHTML = `
+          <span class="original-price">$${item.marketPrice}</span>
+        `
+      }
+     
+    })
+    
+  }
+}
+
+function setupAddToCartButtons() {
   // Add to cart buttons
   const addToCartButtons = document.querySelectorAll(".add-to-cart-btn");
   addToCartButtons.forEach((button) => {
@@ -43,6 +90,12 @@ function setupEventListeners() {
       showMessage("Product added to cart!", "success");
     });
   });
+}
+
+// Setup event listeners for the site
+function setupEventListeners() {
+  // Add to cart buttons
+  setupAddToCartButtons()
 
   // Setup mobile menu toggle
 }
@@ -74,6 +127,7 @@ function setupNewsletterForm() {
 
       const emailInput = document.getElementById("newsletter-email");
       const email = emailInput.value;
+      console.log(`${email} subscribed!`)
 
       // Simulate subscription
       setTimeout(() => {

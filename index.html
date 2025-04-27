@@ -1,231 +1,318 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>ShopEase - Your One-Stop Shop</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudfare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+  </head>
+  <body>
     <header>
-        <div class="logo-container">
-            <img src="images/ShopEase-logo.svg" alt="ShopEase Logo" class="logo">
+      <div class="logo-container">
+        <img src="images/ShopEase-logo.svg" alt="ShopEase Logo" class="logo" />
+      </div>
+      <nav class="main-nav">
+        <ul id="nav-items">
+          <li id="nav-item"><a href="index.html" class="active">Home</a></li>
+          <li id="nav-item"><a href="pages/products.html">Products</a></li>
+          <li id="nav-item"><a href="pages/categories.html">Categories</a></li>
+          <li id="nav-item"><a href="pages/about.html">About Us</a></li>
+          <li id="nav-item"><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="cart-container">
+        <div class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
         </div>
-        <nav class="main-nav">
-            <ul id="nav-items">
-                <li id="nav-item"><a href="index.html" class="active">Home</a></li>
-                <li id="nav-item"><a href="pages/products.html">Products</a></li>
-                <li id="nav-item"><a href="pages/categories.html">Categories</a></li>
-                <li id="nav-item"><a href="pages/about.html">About Us</a></li>
-                <li id="nav-item"><a href="pages/contact.html">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="cart-container">
-            <div class="cart-icon">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count">0</span>
-            </div>
-            <div class="cart-dropdown" style="display: none;">
-                <div class="cart-items">
-                    <!-- Cart items will be added here by JavaScript -->
-                </div>
-                <div class="cart-total">
-                    <p>Total: $<span id="cart-total-amount">0.00</span></p>
-                </div>
-                <button class="checkout-btn">Checkout</button>
-            </div>
+        <div class="cart-dropdown" style="display: none">
+          <div class="cart-items">
+            <!-- Cart items will be added here by JavaScript -->
+          </div>
+          <div class="cart-total">
+            <p>Total: $<span id="cart-total-amount">0.00</span></p>
+          </div>
+          <button class="checkout-btn">Checkout</button>
         </div>
+      </div>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Welcome to ShopEase</h1>
-            <p>Find the best products at the best prices</p>
-            <a href="pages/products.html" class="cta-button">Shop Now</a>
-        </div>
+      <div class="hero-content">
+        <h1>Welcome to ShopEase</h1>
+        <p>Find the best products at the best prices</p>
+        <a href="pages/products.html" class="cta-button">Shop Now</a>
+      </div>
     </section>
 
     <section class="featured-products">
-        <h2>Featured Products</h2>
-        <div class="product-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1657223144998-e5aa4fa2db7c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdpcmVsZXNzJTIwaGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D" alt="Product 1">
-                    <div class="product-tag">Sale</div>
-                </div>
-                <div class="product-details">
-                    <h3 class="product-title">Wireless Headphones</h3>
-                    <div class="product-price">
-                        <span class="original-price">$120</span>
-                        <span class="sale-price">99.99</span>
-                    </div>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <span class="rating-count">(42)</span>
-                    </div>
-                    <button class="add-to-cart-btn" data-product-id="1" data-product-name="Wireless Headphones" data-product-price="99.99">Add to Cart</button>
-                </div>
+      <h2>Featured Products</h2>
+      <div class="product-grid">
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="https://images.unsplash.com/photo-1657223144998-e5aa4fa2db7c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdpcmVsZXNzJTIwaGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D"
+              alt="Product 1"
+            />
+            <div class="product-tag">Sale</div>
+          </div>
+          <div class="product-details">
+            <h3 class="product-title">Wireless Headphones</h3>
+            <div class="product-price">
+              <span class="original-price">$120</span>
+              <span class="sale-price">99.99</span>
             </div>
-
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D" alt="Product 2">
-                </div>
-                <div class="product-details">
-                    <h3 class="product-title">Smart Watch</h3>
-                    <div class="product-price">
-                        <span class="current-price">$199.99</span>
-                    </div>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <span class="rating-count">(28)</span>
-                    </div>
-                    <button class="add-to-cart-btn" data-product-id="2" data-product-name="Smart Watch" data-product-price="199.99">Add to Cart</button>
-                </div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="rating-count">(42)</span>
             </div>
-
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://media.istockphoto.com/id/1131663236/photo/black-portable-acoustics-on-a-white-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=KRlXS9v_xgS8xEqVG8fZM1Pg1pYI5OiwXa1j0MRw1SE=" alt="Product 3">
-                    <div class="product-tag">New</div>
-                </div>
-                <div class="product-details">
-                    <h3 class="product-title">Bluetooth Speaker</h3>
-                    <div class="product-price">
-                        <span class="current-price">$79.99</span>
-                    </div>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
-                        <span class="rating-count">(17)</span>
-                    </div>
-                    <button class="add-to-cart-btn" data-product-id="3" data-product-name="Bluetooth Speaker" data-product-price="79.99">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="https://plus.unsplash.com/premium_photo-1661598213264-9b708f59d793?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product 4">
-                </div>
-                <div class="product-details">
-                    <h3 class="product-title">Laptop Bag</h3>
-                    <div class="product-price">
-                        <span class="current-price">$49.99</span>
-                    </div>
-                    <div class="product-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <span class="rating-count">(35)</span>
-                    </div>
-                    <button class="add-to-cart-btn" data-product-id="4" data-product-name="Laptop Bag" data-product-price="49.99">Add to Cart</button>
-                </div>
-            </div>
-
+            <button
+              class="add-to-cart-btn"
+              data-product-id="1"
+              data-product-name="Wireless Headphones"
+              data-product-price="99.99"
+            >
+              Add to Cart
+            </button>
+          </div>
         </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D"
+              alt="Product 2"
+            />
+          </div>
+          <div class="product-details">
+            <h3 class="product-title">Smart Watch</h3>
+            <div class="product-price">
+              <span class="current-price">$199.99</span>
+            </div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span class="rating-count">(28)</span>
+            </div>
+            <button
+              class="add-to-cart-btn"
+              data-product-id="2"
+              data-product-name="Smart Watch"
+              data-product-price="199.99"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="https://media.istockphoto.com/id/1131663236/photo/black-portable-acoustics-on-a-white-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=KRlXS9v_xgS8xEqVG8fZM1Pg1pYI5OiwXa1j0MRw1SE="
+              alt="Product 3"
+            />
+            <div class="product-tag">New</div>
+          </div>
+          <div class="product-details">
+            <h3 class="product-title">Bluetooth Speaker</h3>
+            <div class="product-price">
+              <span class="current-price">$79.99</span>
+            </div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <i class="far fa-star"></i>
+              <span class="rating-count">(17)</span>
+            </div>
+            <button
+              class="add-to-cart-btn"
+              data-product-id="3"
+              data-product-name="Bluetooth Speaker"
+              data-product-price="79.99"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="product-card">
+          <div class="product-image">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1661598213264-9b708f59d793?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Product 4"
+            />
+          </div>
+          <div class="product-details">
+            <h3 class="product-title">Laptop Bag</h3>
+            <div class="product-price">
+              <span class="current-price">$49.99</span>
+            </div>
+            <div class="product-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="rating-count">(35)</span>
+            </div>
+            <button
+              class="add-to-cart-btn"
+              data-product-id="4"
+              data-product-name="Laptop Bag"
+              data-product-price="49.99"
+            >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="categories">
-        <h2>Shop by Category</h2>
-        <div class="category-grid">
-            <div class="category-card">
-                <img src="https://media.istockphoto.com/id/2157682947/vector/computer-trash.jpg?s=1024x1024&w=is&k=20&c=EuyI2oJ3TMQU_xOWq_3hjhyTIuHbB1YM7t34XdZmNwI=" alt="Electronics Category">
-                <h3>Electronics</h3>
-                <a href="pages/categories.html#electronics" class="category-link">View All</a>
-            </div>
-            <div class="category-card">
-                <img src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xvdGhpbmd8ZW58MHx8MHx8fDA%3D" alt="Clothing Category">
-                <h3>Clothing</h3>
-                <a href="pages/categories.html#clothing" class="category-link">View All</a>
-            </div>
-            <div class="category-card">
-                <img src="https://plus.unsplash.com/premium_photo-1678476447459-3ad4fd4759ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG9tZSUyMGFuZCUyMGtpdGNoZW58ZW58MHx8MHx8fDA%3D" alt="Home & Kitchen Category">
-                <h3>Home & Kitchen</h3>
-                <a href="pages/categories.html#home" class="category-link">View All</a>
-            </div>
-            <div class="category-card">
-                <img src="https://media.istockphoto.com/id/1460872645/photo/wood-baseball-bat-with-balls-and-glove.webp?a=1&b=1&s=612x612&w=0&k=20&c=1dcEeTSXFkwKAqdZxxjNkb4bUbrhXpHuj9jrjMwZI3A=" alt="Sports & Outdoors Category">
-                <h3>Sports & Outdoors</h3>
-                <a href="pages/categories.html#sports" class="category-link">View All</a>
+      <h2>Shop by Category</h2>
+      <div class="category-grid">
+        <div class="category-card">
+          <img
+            src="https://media.istockphoto.com/id/2157682947/vector/computer-trash.jpg?s=1024x1024&w=is&k=20&c=EuyI2oJ3TMQU_xOWq_3hjhyTIuHbB1YM7t34XdZmNwI="
+            alt="Electronics Category"
+          />
+          <h3>Electronics</h3>
+          <a href="pages/categories.html#electronics" class="category-link"
+            >View All</a
+          >
         </div>
+        <div class="category-card">
+          <img
+            src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xvdGhpbmd8ZW58MHx8MHx8fDA%3D"
+            alt="Clothing Category"
+          />
+          <h3>Clothing</h3>
+          <a href="pages/categories.html#clothing" class="category-link"
+            >View All</a
+          >
+        </div>
+        <div class="category-card">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1678476447459-3ad4fd4759ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG9tZSUyMGFuZCUyMGtpdGNoZW58ZW58MHx8MHx8fDA%3D"
+            alt="Home & Kitchen Category"
+          />
+          <h3>Home & Kitchen</h3>
+          <a href="pages/categories.html#home" class="category-link"
+            >View All</a
+          >
+        </div>
+        <div class="category-card">
+          <img
+            src="https://media.istockphoto.com/id/1460872645/photo/wood-baseball-bat-with-balls-and-glove.webp?a=1&b=1&s=612x612&w=0&k=20&c=1dcEeTSXFkwKAqdZxxjNkb4bUbrhXpHuj9jrjMwZI3A="
+            alt="Sports & Outdoors Category"
+          />
+          <h3>Sports & Outdoors</h3>
+          <a href="pages/categories.html#sports" class="category-link"
+            >View All</a
+          >
+        </div>
+      </div>
     </section>
 
     <section class="newsletter">
-        <div class="newsletter-content">
-            <h2>Subscribe to Our Newsletter</h2>
-            <p>Get updates on new products, special offers, and more.</p>
-            <form id="newsletter-form">
-                <input type="email" placeholder="Enter your email" required id="newsletter-email">
-                <button type="submit">Subscribe</button>
-            </form>
-            <div id="newsletter-success"></div>
-        </div>
+      <div class="newsletter-content">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Get updates on new products, special offers, and more.</p>
+        <form id="newsletter-form">
+          <input
+            type="email"
+            placeholder="Enter your email"
+            required
+            id="newsletter-email"
+          />
+          <button type="submit">Subscribe</button>
+        </form>
+        <div id="newsletter-success"></div>
+      </div>
     </section>
 
     <footer>
-        <div class="footer-columns">
-            <div class="footer-column">
-                <h3>Shop</h3>
-                <ul>
-                    <li><a href="pages/products.html">All Products</a></li>
-                    <li><a href="pages/categories.html">Categories</a></li>
-                    <li><a href="pages/deals.html">Deals</a></li>
-                    <li><a href="pages/new-arrivals.html">New Arrivals</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>Customer Service</h3>
-                <ul>
-                    <li><a href="pages/contact.html">Contact Us</a></li>
-                    <li><a href="pages/faq.html">FAQ</a></li>
-                    <li><a href="pages/shipping.html">Shipping & Returns</a></li>
-                    <li><a href="pages/terms.html">Terms & Conditions</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h3>About Us</h3>
-                <ul>
-                    <li><a href="pages/about.html">Our Story</a></li>
-                    <li><a href="pages/blog.html">Blog</a></li>
-                    <li><a href="pages/careers.html">Careers</a></li>
-                    <li><a href="pages/partners.html">Partners</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-
-                <h3>Follow Us</h3>
-                <ul class="social-links">
-                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</li>
-                    <li><a href="https://x.com/i/flow/login?redirect_after_login=%2Fexplore" target="_blank"><i class="fab fa-twitter"></i>Twitter</a></li>
-                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i>Instagram</a></li>
-                    <li><a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest"></i>Pinterest</a></li>
-                </ul>
-            </div>
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="pages/products.html">All Products</a></li>
+            <li><a href="pages/categories.html">Categories</a></li>
+            <li><a href="pages/deals.html">Deals</a></li>
+            <li><a href="pages/new-arrivals.html">New Arrivals</a></li>
+          </ul>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 ShopEase. All Rights Reserved.</p>
+        <div class="footer-column">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="pages/contact.html">Contact Us</a></li>
+            <li><a href="pages/faq.html">FAQ</a></li>
+            <li><a href="pages/shipping.html">Shipping & Returns</a></li>
+            <li><a href="pages/terms.html">Terms & Conditions</a></li>
+          </ul>
         </div>
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="pages/about.html">Our Story</a></li>
+            <li><a href="pages/blog.html">Blog</a></li>
+            <li><a href="pages/careers.html">Careers</a></li>
+            <li><a href="pages/partners.html">Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Follow Us</h3>
+          <ul class="social-links">
+            <li>
+              <a href="https://www.facebook.com/" target="_blank"
+                ><i class="fab fa-facebook-f"></i>Facebook</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://x.com/i/flow/login?redirect_after_login=%2Fexplore"
+                target="_blank"
+                ><i class="fab fa-twitter"></i>Twitter</a
+              >
+            </li>
+            <li>
+              <a href="https://www.instagram.com/" target="_blank"
+                ><i class="fab fa-instagram"></i>Instagram</a
+              >
+            </li>
+            <li>
+              <a href="https://www.pinterest.com/" target="_blank"
+                ><i class="fab fa-pinterest"></i>Pinterest</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ShopEase. All Rights Reserved.</p>
+      </div>
     </footer>
-
-
-    <script src="js/main.js"></script>
-    <script src="js/cart.js"></script>
-</body>
+  </body>
+</html>

@@ -1,0 +1,171 @@
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>ShopEase - Categories</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img
+          src="../images/ShopEase-logo.svg"
+          alt="ShopEase Logo"
+          class="logo"
+        />
+      </div>
+      <nav class="main-nav">
+        <ul id="nav-items">
+          <li id="nav-item"><a href="../index.html" class="active">Home</a></li>
+          <li id="nav-item"><a href="pages/products.html">Products</a></li>
+          <li id="nav-item">
+            <a href="../pages/categories.html">Categories</a>
+          </li>
+          <li id="nav-item"><a href="pages/about.html">About Us</a></li>
+          <li id="nav-item"><a href="pages/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="cart-container">
+        <div class="cart-icon">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count">0</span>
+        </div>
+        <div class="cart-dropdown" style="display: none">
+          <div class="cart-items">
+            <!-- Cart items will be added here by JavaScript -->
+          </div>
+          <div class="cart-total">
+            <p>Total: $<span id="cart-total-amount">0.00</span></p>
+          </div>
+          <button class="checkout-btn">Checkout</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Categories</h1>
+        <p>What can we help you find?</p>
+      </div>
+    </section>
+
+    <section class="categories">
+      <h2>Shop by Category</h2>
+      <div class="category-grid">
+        <div class="category-card">
+          <img
+            src="https://media.istockphoto.com/id/2157682947/vector/computer-trash.jpg?s=1024x1024&w=is&k=20&c=EuyI2oJ3TMQU_xOWq_3hjhyTIuHbB1YM7t34XdZmNwI="
+            alt="Electronics Category"
+          />
+          <h3>Electronics</h3>
+          <a href="pages/categories.html#electronics" class="category-link"
+            >View All</a
+          >
+        </div>
+        <div class="category-card">
+          <img
+            src="https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xvdGhpbmd8ZW58MHx8MHx8fDA%3D"
+            alt="Clothing Category"
+          />
+          <h3>Clothing</h3>
+          <a href="pages/categories.html#clothing" class="category-link"
+            >View All</a
+          >
+        </div>
+        <div class="category-card">
+          <img
+            src="https://plus.unsplash.com/premium_photo-1678476447459-3ad4fd4759ee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aG9tZSUyMGFuZCUyMGtpdGNoZW58ZW58MHx8MHx8fDA%3D"
+            alt="Home & Kitchen Category"
+          />
+          <h3>Home & Kitchen</h3>
+          <a href="pages/categories.html#home" class="category-link"
+            >View All</a
+          >
+        </div>
+        <div class="category-card">
+          <img
+            src="https://media.istockphoto.com/id/1460872645/photo/wood-baseball-bat-with-balls-and-glove.webp?a=1&b=1&s=612x612&w=0&k=20&c=1dcEeTSXFkwKAqdZxxjNkb4bUbrhXpHuj9jrjMwZI3A="
+            alt="Sports & Outdoors Category"
+          />
+          <h3>Sports & Outdoors</h3>
+          <a href="pages/categories.html#sports" class="category-link"
+            >View All</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-columns">
+        <div class="footer-column">
+          <h3>Shop</h3>
+          <ul>
+            <li><a href="pages/products.html">All Products</a></li>
+            <li><a href="pages/categories.html">Categories</a></li>
+            <li><a href="pages/deals.html">Deals</a></li>
+            <li><a href="pages/new-arrivals.html">New Arrivals</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Customer Service</h3>
+          <ul>
+            <li><a href="pages/contact.html">Contact Us</a></li>
+            <li><a href="pages/faq.html">FAQ</a></li>
+            <li><a href="pages/shipping.html">Shipping & Returns</a></li>
+            <li><a href="pages/terms.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>About Us</h3>
+          <ul>
+            <li><a href="pages/about.html">Our Story</a></li>
+            <li><a href="pages/blog.html">Blog</a></li>
+            <li><a href="pages/careers.html">Careers</a></li>
+            <li><a href="pages/partners.html">Partners</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Follow Us</h3>
+          <ul class="social-links">
+            <li>
+              <a href="https://www.facebook.com/" target="_blank"
+                ><i class="fab fa-facebook-f"></i>Facebook</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://x.com/i/flow/login?redirect_after_login=%2Fexplore"
+                target="_blank"
+                ><i class="fab fa-twitter"></i>Twitter</a
+              >
+            </li>
+            <li>
+              <a href="https://www.instagram.com/" target="_blank"
+                ><i class="fab fa-instagram"></i>Instagram</a
+              >
+            </li>
+            <li>
+              <a href="https://www.pinterest.com/" target="_blank"
+                ><i class="fab fa-pinterest"></i>Pinterest</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 ShopEase. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

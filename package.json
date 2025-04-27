@@ -8,5 +8,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "eslint": "^9.25.1",
+    "npm": "^11.3.0",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3",
+    "prettier-eslint": "^16.4.1"
   }
 }

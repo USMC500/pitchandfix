@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   setupQuantityControls();
 
   // Setup add to cart button
-  setupAddToCart();
+  // setupAddToCart();
 
   // Setup color selection
   setupColorSelection();

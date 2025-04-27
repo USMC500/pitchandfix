@@ -3,6 +3,41 @@
 // Cart data
 let cart = [];
 
+let products = [
+  {
+    id: 1,
+    title: "Wireless Headphones",
+    marketPrice: "120.00",
+    salePrice: "99.99",
+    tag: "Sale",
+    image: "https://images.unsplash.com/photo-1657223144998-e5aa4fa2db7c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdpcmVsZXNzJTIwaGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D"
+  },
+  {
+    id: 2,
+    title: "Smart Watch",
+    marketPrice: "199.99",
+  },
+  {
+    id: 3,
+    title: "Bluetooth Speaker",
+    marketPrice: "79.99",
+    tag: "New",
+  },
+  {
+    id: 4,
+    title: "Laptop Bag",
+    marketPrice: "49.99",
+  },
+]
+
+function getProductPrice(product) {
+  if (product.hasOwnProperty("salePrice")) {
+    return product.salePrice
+  } else {
+    return product.marketPrice
+  }
+}
+
 // Check for existing cart in localStorage
 function loadCart() {
   const savedCart = localStorage.getItem("shopease_cart");
@@ -26,6 +61,7 @@ function addToCart(productId, productName, productPrice) {
   if (existingItem) {
     // Increase quantity if already in cart
     existingItem.quantity += 1;
+    existingItem.total = existingItem.price * existingItem.quantity
   } else {
     // Add new item to cart
     cart.push({
@@ -40,6 +76,7 @@ function addToCart(productId, productName, productPrice) {
   // Save cart and update UI
   saveCart();
   updateCartCount();
+  displayCartDropdown();
 
   // If on cart page, update cart display
   if (document.querySelector(".cart-items-list")) {
@@ -55,7 +92,7 @@ function removeFromCart(productId) {
 
   if (itemIndex > -1) {
     // Remove item
-    cart.splice(itemIndex, 2);
+    cart.splice(itemIndex, 1);
 
     // Save cart and update UI
     saveCart();
@@ -86,7 +123,7 @@ function updateItemQuantity(productId, newQuantity) {
     // Save cart and update UI
     saveCart();
     updateCartCount();
-
+    
     // If on cart page, update cart display
     if (document.querySelector(".cart-items-list")) {
       updateCartTotals();
@@ -98,7 +135,10 @@ function updateItemQuantity(productId, newQuantity) {
 function updateCartCount() {
   const cartCountElement = document.querySelector(".cart-count");
   if (cartCountElement) {
-    const itemCount = cart.length;
+    let itemCount = 0;
+    cart.forEach((item) => {
+      itemCount += item.quantity;
+    })
     cartCountElement.textContent = itemCount;
   }
 }
@@ -118,6 +158,22 @@ function toggleCart() {
   }
 }
 
+// Show empty cart message
+function showEmptyCartMessage() {
+  const cartItemsContainer = document.querySelector(
+    ".cart-dropdown .cart-items"
+  );
+  const cartTotalAmount = document.getElementById("cart-total-amount");
+
+  if (cartItemsContainer && cartTotalAmount) {
+    // Clear current items
+    // cartItemsContainer.innerHTML = "";
+    cartItemsContainer.innerHTML =
+      '<p class="empty-cart">Your cart is empty</p>';
+    cartTotalAmount.textContent = "0.00";
+    }
+}
+
 // Display items in cart dropdown
 function displayCartDropdown() {
   const cartItemsContainer = document.querySelector(
@@ -130,11 +186,7 @@ function displayCartDropdown() {
     cartItemsContainer.innerHTML = "";
 
     if (cart.length === 0) {
-      // Show empty cart message
-      cartItemsContainer.innerHTML =
-        '<p class="empty-cart">Your cart is empty</p>';
-      cartTotalAmount.textContent = "0.00";
-      return;
+      showEmptyCartMessage()
     }
 
     // Add each item
@@ -146,6 +198,9 @@ function displayCartDropdown() {
                 <div class="item-details">
                     <h4>${item.name}</h4>
                     <p>${item.price}</p>
+                </div>
+                <div>
+                    <p>${item.quantity}</p>
                 </div>
                 <button class="remove-item" data-product-id="${item.id}">×</button>
             `;
@@ -167,7 +222,7 @@ function displayCartDropdown() {
     // Update total
     let total = 0;
     cart.forEach((item) => {
-      total += parseFloat(item.price);
+      total += parseFloat(item.price*item.quantity);
     });
 
     cartTotalAmount.textContent = total.toFixed(2);
@@ -351,6 +406,7 @@ function setupCheckoutButton() {
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", function () {
       // Redirect to checkout page (or show modal)
+      
       alert("Proceeding to checkout...");
       // window.location.href = 'checkout.html';
     });
