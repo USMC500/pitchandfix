@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // Show cart count on load
   updateCartCount();
 
-  setupProducts()
+  // Show product cards
+  setupFeaturedProducts();
 
   // Setup event listeners
   setupEventListeners();
@@ -26,21 +27,26 @@ function initializeSite() {
   setupNewsletterForm();
 }
 
-function setupProducts() {
-  const productGrid = document.querySelectorAll(".product-grid");
-  if(productGrid) {
-    products.forEach((item) => {
+function setupFeaturedProducts() {
+  const productItemsContainer = document.querySelector(".product-grid");
+  productItemsContainer.innerHTML = "";
+  if(productItemsContainer) {
+    for (const key in products) {
+    // productsList.forEach((item) => {
+      const item = products[key]
+      if (item.featured) {
       const productCard = document.createElement("div");
       productCard.className = "product-card";
-
       productCard.innerHTML = `
         <div class="product-image">
-            <img src="${item.image}" alt="Product 1">
-            <div class="product-tag">${item.tag}</div>
+            <img src="${item.image}" alt="Product ${item.id}">
+           ${item.tag === '' ? '' : `<div class="product-tag">${item.tag}</div>`}
         </div>
         <div class="product-details">
             <h3 class="product-title">${item.title}</h3>
             <div id="product-price-${item.id}" class="product-price">
+              <span class="${item.salePrice === '' ? 'current-price' : 'original-price'}">$${item.marketPrice}</span>
+              ${item.salePrice != '' ? `<span class="sale-price">$${item.salePrice}</span>` : ''}
             </div>
             <div class="product-rating">
                 <i class="fas fa-star"></i>
@@ -48,28 +54,15 @@ function setupProducts() {
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
-                <span class="rating-count">(42)</span>
+                <span class="rating-count">(${item.rating_count})</span>
             </div>
-            <button class="add-to-cart-btn" data-product-id="${item.id}" data-product-name="${item.title}" data-product-price="${getProductPrice(item)}">Add to Cart</button>
+            <button class="add-to-cart-btn" data-product-id="${item.id}">Add to Cart</button>
         </div>
-      `
-
-      const productPrice = document.getElementById(`product-price-${item.id}`)
-      if (item.hasOwnProperty("salePrice")) {
-         productPrice.innerHTML = `
-          <span class="original-price">$${item.marketPrice}</span>
-          <span class="sale-price">${item.salePrice}</span>
-        `
-      }
-      else {
-        productPrice.innerHTML = `
-          <span class="original-price">$${item.marketPrice}</span>
-        `
-      }
-     
-    })
-    
-  }
+      `;
+      productItemsContainer.appendChild(productCard);
+      };
+    };
+  };
 }
 
 function setupAddToCartButtons() {

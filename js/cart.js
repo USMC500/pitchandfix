@@ -3,32 +3,48 @@
 // Cart data
 let cart = [];
 
-let products = [
-  {
-    id: 1,
-    title: "Wireless Headphones",
+let products = {
+  "9881cc5b-8978-4f78-b79d-deb034279da6": {
+    id: "9881cc5b-8978-4f78-b79d-deb034279da6",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1657223144998-e5aa4fa2db7c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdpcmVsZXNzJTIwaGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D",
     marketPrice: "120.00",
+    rating_count: 42,
     salePrice: "99.99",
     tag: "Sale",
-    image: "https://images.unsplash.com/photo-1657223144998-e5aa4fa2db7c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdpcmVsZXNzJTIwaGVhZHBob25lc3xlbnwwfHwwfHx8MA%3D%3D"
+    title: "Wireless Headphones",
   },
-  {
-    id: 2,
-    title: "Smart Watch",
+  "30971c35-04a3-4325-b4b8-2f82912c21ab": {
+    id: "30971c35-04a3-4325-b4b8-2f82912c21ab",
+    image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c21hcnQlMjB3YXRjaHxlbnwwfHwwfHx8MA%3D%3D",
     marketPrice: "199.99",
+    rating_count: 28,
+    salePrice: "",
+    tag: "",
+    title: "Smart Watch",
+    featured: true,
   },
-  {
-    id: 3,
-    title: "Bluetooth Speaker",
+  "c62bf4ea-9771-419a-bca7-7376040301cc": {
+    id: "c62bf4ea-9771-419a-bca7-7376040301cc",
+    featured: true,
+    image: "https://media.istockphoto.com/id/1131663236/photo/black-portable-acoustics-on-a-white-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=KRlXS9v_xgS8xEqVG8fZM1Pg1pYI5OiwXa1j0MRw1SE=",
     marketPrice: "79.99",
+    rating_count: 17,
+    salePrice: "",
     tag: "New",
+    title: "Bluetooth Speaker",
   },
-  {
-    id: 4,
-    title: "Laptop Bag",
+  "793e2c65-712a-4cbe-882f-3eed26fcb951": {
+    id: "793e2c65-712a-4cbe-882f-3eed26fcb951",
+    featured: true,
+    image: "https://plus.unsplash.com/premium_photo-1661598213264-9b708f59d793?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     marketPrice: "49.99",
+    rating_count: 35,
+    salePrice: "",
+    tag: "",
+    title: "Laptop Bag",
   },
-]
+}
 
 function getProductPrice(product) {
   if (product.hasOwnProperty("salePrice")) {
@@ -52,21 +68,23 @@ function saveCart() {
 }
 
 // Add product to cart
-function addToCart(productId, productName, productPrice) {
-  const price = productPrice;
+function addToCart(productId) {
+  const product = products[productId]
+  const price = product.salePrice === '' ? product.marketPrice : product.salePrice;
 
   // Check if product already in cart
-  const existingItem = cart.find((item) => item.id === productId);
+  const existingItem = cart.find((item) => item.id === product.id);
 
   if (existingItem) {
     // Increase quantity if already in cart
     existingItem.quantity += 1;
     existingItem.total = existingItem.price * existingItem.quantity
+    existingItem.total = existingItem.price * existingItem.quantity
   } else {
     // Add new item to cart
     cart.push({
-      id: productId,
-      name: productName,
+      id: product.id,
+      name: product.title,
       price: price,
       quantity: 1,
       total: price,
@@ -123,7 +141,7 @@ function updateItemQuantity(productId, newQuantity) {
     // Save cart and update UI
     saveCart();
     updateCartCount();
-    
+
     // If on cart page, update cart display
     if (document.querySelector(".cart-items-list")) {
       updateCartTotals();
